@@ -1,18 +1,18 @@
 name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+description: 'GitHub Actions for diff checking properties change'
+author: 'Victor Teles'
 
-# Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  file-name:
+    description: 'Properties file name/path'
     required: true
-    default: '1000'
+  property:
+    description: 'Property name to check changes'
+    required: true
 
-# Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  changed:
+    description: 'Boolean that indicates whether file property change'
 
 runs:
   using: node20
