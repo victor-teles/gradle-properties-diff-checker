@@ -1,9 +1,9 @@
-import fetch from "node-fetch"
+import fetch from 'node-fetch'
 
-export const get = async (url: string) => {
-    const response = await fetch(url, {
-        method: 'GET'
-    })
+export const get = async (url: string): Promise<Record<string, unknown>> => {
+  const response = await fetch(url, {
+    method: 'GET'
+  })
 
-    await response.json()
+  return (await response.json()) as Record<string, unknown>
 }
