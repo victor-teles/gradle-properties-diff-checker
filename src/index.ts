@@ -12,6 +12,7 @@ export async function run(): Promise<void> {
     const eventFile = process.env.GITHUB_EVENT_PATH
 
     if (!eventFile) {
+      core.debug(`Failed to retrive event data`)
       core.setFailed('Failed to retrive event data')
       return
     }
