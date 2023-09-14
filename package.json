@@ -1,16 +1,16 @@
 {
-  "name": "typescript-action",
-  "description": "GitHub Actions TypeScript template",
+  "name": "gradle-properties-diff-checker",
+  "description": "GitHub Actions for diff checking properties change",
   "version": "0.0.0",
   "author": "",
   "private": true,
-  "homepage": "https://github.com/actions/typescript-action",
+  "homepage": "https://github.com/victor-teles/gradle-properties-diff-checker",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/victor-teles/gradle-properties-diff-checker.git"
   },
   "bugs": {
-    "url": "https://github.com/actions/typescript-action/issues"
+    "url": "https://github.com/victor-teles/gradle-properties-diff-checker/issues"
   },
   "keywords": [
     "actions",
@@ -21,7 +21,7 @@
     ".": "./dist/index.js"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   },
   "scripts": {
     "bundle": "npm run format:write && npm run package",
@@ -65,7 +65,9 @@
     ]
   },
   "dependencies": {
-    "@actions/core": "^1.10.1"
+    "@actions/core": "^1.10.1",
+    "@js.properties/properties": "^0.5.4",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.4",
