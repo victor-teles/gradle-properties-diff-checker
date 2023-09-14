@@ -15,10 +15,17 @@ const getInputMock = jest.spyOn(core, 'getInput')
 
 // Mock the action's entrypoint
 const runMock = jest.spyOn(index, 'run')
+const originalEnv = process.env
 
 describe('action', () => {
   beforeEach(() => {
     jest.clearAllMocks()
+    jest.resetModules()
+    process.env = {
+      ...originalEnv,
+      GITHUB_WORKSPACE: '/github/workspace',
+      GITHUB_EVENT_PATH: '/github/workflow/event.json'
+    }
   })
 
   it('sets the time output', async () => {

@@ -6,9 +6,8 @@ import * as core from '@actions/core'
 export async function run(): Promise<void> {
   try {
     const fileName: string = core.getInput('file-name')
-    const dir = process.env.GITHUB_WORKSPACE || '/github/workspace'
-    const eventFile =
-      process.env.GITHUB_EVENT_PATH || '/github/workflow/event.json'
+    const dir = process.env.GITHUB_WORKSPACE
+    const eventFile = process.env.GITHUB_EVENT_PATH
 
     core.debug(`${eventFile}`)
     core.debug(`${dir}`)

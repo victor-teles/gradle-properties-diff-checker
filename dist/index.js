@@ -2760,8 +2760,8 @@ const core = __importStar(__nccwpck_require__(186));
 async function run() {
     try {
         const fileName = core.getInput('file-name');
-        const dir = process.env.GITHUB_WORKSPACE || '/github/workspace';
-        const eventFile = process.env.GITHUB_EVENT_PATH || '/github/workflow/event.json';
+        const dir = process.env.GITHUB_WORKSPACE;
+        const eventFile = process.env.GITHUB_EVENT_PATH;
         core.debug(`${eventFile}`);
         core.debug(`${dir}`);
         core.debug(`${fileName}`);
