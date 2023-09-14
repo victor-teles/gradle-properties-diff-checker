@@ -17,13 +17,14 @@ export async function run(): Promise<void> {
       return
     }
 
-    const eventData = await get(eventFile)
-
-    core.debug(`${JSON.stringify(eventData)}`)
     core.debug(`${eventFile}`)
     core.debug(`${dir}`)
     core.debug(`${fileName}`)
     core.debug(`${property}`)
+
+    const eventData = await get(eventFile)
+
+    core.debug(`${JSON.stringify(eventData)}`)
 
     core.setOutput('changed', new Date().toTimeString())
   } catch (error) {

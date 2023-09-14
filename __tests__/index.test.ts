@@ -47,8 +47,8 @@ describe('action', () => {
     await index.run()
     expect(runMock).toHaveReturned()
 
-    expect(debugMock).toHaveBeenNthCalledWith(1, '{}')
-    expect(debugMock).toHaveBeenNthCalledWith(2, '/github/workflow/event.json')
-    expect(debugMock).toHaveBeenNthCalledWith(3, '/github/workspace')
+    expect(debugMock).toHaveBeenNthCalledWith(1, '/github/workflow/event.json')
+    expect(debugMock).toHaveBeenNthCalledWith(2, '/github/workspace')
+    expect(debugMock).toHaveBeenNthCalledWith(5, '{}')
   })
 })

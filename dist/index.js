@@ -6239,12 +6239,12 @@ async function run() {
             core.setFailed('Failed to retrive event data');
             return;
         }
-        const eventData = await (0, fetch_1.get)(eventFile);
-        core.debug(`${JSON.stringify(eventData)}`);
         core.debug(`${eventFile}`);
         core.debug(`${dir}`);
         core.debug(`${fileName}`);
         core.debug(`${property}`);
+        const eventData = await (0, fetch_1.get)(eventFile);
+        core.debug(`${JSON.stringify(eventData)}`);
         core.setOutput('changed', new Date().toTimeString());
     }
     catch (error) {
