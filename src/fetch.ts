@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { default as axios } from 'axios'
 
 export const get = async (url: string): Promise<Record<string, unknown>> => {
   const response = await axios(url, {
