@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-import { get } from './fetch'
+import { readFileSync } from 'fs'
 /**
  * The main function for the action.
  * @returns {Promise<void>} Resolves when the action is complete.
@@ -22,7 +22,7 @@ export async function run(): Promise<void> {
     core.debug(`${fileName}`)
     core.debug(`${property}`)
 
-    const eventData = await get(eventFile)
+    const eventData = JSON.parse(readFileSync(eventFile, { encoding: 'utf8' }))
 
     core.debug(`${JSON.stringify(eventData)}`)
 

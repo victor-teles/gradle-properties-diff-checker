@@ -5,10 +5,19 @@
  * Specifically, the inputs listed in `action.yml` should be set as environment
  * variables following the pattern `INPUT_<INPUT_NAME>`.
  */
-
 import mockAxios from 'jest-mock-axios'
 import * as core from '@actions/core'
+import { mocked } from 'jest-mock'
 import * as index from '../src/index'
+import { readFileSync } from 'fs'
+
+jest.mock('fs', () => ({
+  promises: {
+    access: jest.fn()
+  },
+  readFileSync: jest.fn()
+}))
+
 // Mock the GitHub Actions core library
 const debugMock = jest.spyOn(core, 'debug')
 const getInputMock = jest.spyOn(core, 'getInput')
@@ -35,6 +44,8 @@ describe('action', () => {
 
   it('sets the time output', async () => {
     mockAxios.mockResolvedValueOnce({ data: {} })
+    mocked(readFileSync as jest.Mock).mockReturnValue('{}')
+
     getInputMock.mockImplementation((name: string): string => {
       switch (name) {
         case 'fileName':
