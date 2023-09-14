@@ -6,9 +6,9 @@
  * variables following the pattern `INPUT_<INPUT_NAME>`.
  */
 
+import mockAxios from 'jest-mock-axios'
 import * as core from '@actions/core'
 import * as index from '../src/index'
-import axios from "axios";
 // Mock the GitHub Actions core library
 const debugMock = jest.spyOn(core, 'debug')
 const getInputMock = jest.spyOn(core, 'getInput')
@@ -16,28 +16,21 @@ const getInputMock = jest.spyOn(core, 'getInput')
 // Mock the action's entrypoint
 const runMock = jest.spyOn(index, 'run')
 const originalEnv = process.env
-import mockAxios from 'jest-mock-axios';
-
 
 describe('action', () => {
   afterEach(() => {
-    mockAxios.reset();
-  });
-
+    mockAxios.reset()
+  })
 
   beforeEach(() => {
     jest.clearAllMocks()
     jest.resetModules()
-
-
 
     process.env = {
       ...originalEnv,
       GITHUB_WORKSPACE: '/github/workspace',
       GITHUB_EVENT_PATH: '/github/workflow/event.json'
     }
-
-
   })
 
   it('sets the time output', async () => {
