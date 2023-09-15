@@ -60,6 +60,6 @@ describe('action', () => {
 
     expect(debugMock).toHaveBeenNthCalledWith(1, '/github/workflow/event.json')
     expect(debugMock).toHaveBeenNthCalledWith(2, '/github/workspace')
-    expect(debugMock).toHaveBeenNthCalledWith(5, '{}')
+    expect(debugMock).toHaveBeenNthCalledWith(6, '{}')
   })
 })

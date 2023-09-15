@@ -2762,6 +2762,7 @@ async function run() {
     try {
         const fileName = core.getInput('file-name');
         const property = core.getInput('property');
+        const githubApiUrl = core.getInput('github-api-url');
         const dir = process.env.GITHUB_WORKSPACE;
         const eventFile = process.env.GITHUB_EVENT_PATH;
         if (!eventFile) {
@@ -2773,6 +2774,7 @@ async function run() {
         core.debug(`${dir}`);
         core.debug(`${fileName}`);
         core.debug(`${property}`);
+        core.debug(`${githubApiUrl}`);
         const eventData = JSON.parse((0, fs_1.readFileSync)(eventFile, { encoding: 'utf8' }));
         core.debug(`${JSON.stringify(eventData)}`);
         core.setOutput('changed', new Date().toTimeString());

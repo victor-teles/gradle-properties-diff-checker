@@ -8,6 +8,7 @@ export async function run(): Promise<void> {
   try {
     const fileName: string = core.getInput('file-name')
     const property: string = core.getInput('property')
+    const githubApiUrl: string = core.getInput('github-api-url')
     const dir = process.env.GITHUB_WORKSPACE
     const eventFile = process.env.GITHUB_EVENT_PATH
 
@@ -21,6 +22,7 @@ export async function run(): Promise<void> {
     core.debug(`${dir}`)
     core.debug(`${fileName}`)
     core.debug(`${property}`)
+    core.debug(`${githubApiUrl}`)
 
     const eventData = JSON.parse(readFileSync(eventFile, { encoding: 'utf8' }))
 
