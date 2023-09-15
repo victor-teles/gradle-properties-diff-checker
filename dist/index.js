@@ -6265,7 +6265,7 @@ async function run() {
         const eventData = JSON.parse((0, fs_1.readFileSync)(eventFile, { encoding: 'utf8' }));
         for (const commit of eventData.commits) {
             const commitData = await (0, git_1.getCommit)(commit.id);
-            core.debug(`${commitData}`);
+            core.debug(`${JSON.stringify(commitData)}`);
         }
         core.setOutput('changed', new Date().toTimeString());
     }

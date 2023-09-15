@@ -30,7 +30,7 @@ export async function run(): Promise<void> {
 
     for (const commit of eventData.commits) {
       const commitData = await getCommit(commit.id)
-      core.debug(`${commitData}`)
+      core.debug(`${JSON.stringify(commitData)}`)
     }
 
     core.setOutput('changed', new Date().toTimeString())
