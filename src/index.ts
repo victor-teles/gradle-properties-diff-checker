@@ -29,7 +29,7 @@ export async function run(): Promise<void> {
     ) as Event
 
     for (const commit of eventData.commits) {
-      const commitData = getCommit(commit.id)
+      const commitData = await getCommit(commit.id)
       core.debug(`${commitData}`)
     }
 
