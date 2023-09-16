@@ -1,0 +1,19 @@
+name: 'The name of your action here'
+description: 'GitHub Actions for diff checking properties change'
+author: 'Victor Teles'
+
+inputs:
+  file-name:
+    description: 'Properties file name/path'
+    required: true
+  property:
+    description: 'Property name to check changes'
+    required: true
+
+outputs:
+  changed:
+    description: 'Boolean that indicates whether file property change'
+
+runs:
+  using: node20
+  main: dist/index.js
