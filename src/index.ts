@@ -36,6 +36,8 @@ export async function run(): Promise<void> {
       return
     }
 
+    core.setOutput('version', version)
+
     for (const commit of eventData.commits) {
       const commitData = await getCommit(commit.id)
       checkDiff(commitData, fileName, property, version)
@@ -76,6 +78,7 @@ const checkDiff = (
   const versionDiff = matchVersion(file?.patch)
 
   if (versionDiff !== version) {
+    core.setOutput('old-version', versionDiff)
     core.setOutput('changed', true)
     return
   }

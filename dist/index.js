@@ -7998,6 +7998,7 @@ async function run() {
             core.setFailed('Version not found');
             return;
         }
+        core.setOutput('version', version);
         for (const commit of eventData.commits) {
             const commitData = await (0, git_1.getCommit)(commit.id);
             checkDiff(commitData, fileName, property, version);
@@ -8027,6 +8028,7 @@ const checkDiff = (commit, fileName, property, version) => {
     }
     const versionDiff = matchVersion(file?.patch);
     if (versionDiff !== version) {
+        core.setOutput('old-version', versionDiff);
         core.setOutput('changed', true);
         return;
     }

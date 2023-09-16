@@ -13,6 +13,10 @@ inputs:
 outputs:
   changed:
     description: 'Boolean that indicates whether file property change'
+  version:
+    description: 'Version value'
+  old-version:
+    description: 'Old Version value'
 
 runs:
   using: node20
